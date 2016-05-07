@@ -1,7 +1,7 @@
-<style type="text/css">#question1, #nochoice1, #p2a, #p2b, #p2c, #pA1, #pA2, #pA3, #pB1, #pB2, #pB3, #pC1, #pC2, #pC3 { display: none; }
+<style type="text/css">#question1, #nochoice1, #p2a, #p2b, #p2c, #pA1, #pA2, #pA3, #pB1, #pB2, #pB3, #pC1, #pC2, #pC3, #again { display: none; }
 </style>
 <div class="bookquiz">
-<form class="question1">
+<form class="question1" id="yesorno">
 <h2>Do you like historical fiction?</h2>
 <label><input name="choice1" type="radio" value="yes" /> Yes </label> <label> <input name="choice1" type="radio" value="no" /> No </label></form>
 <!--end question 1 -->
@@ -130,6 +130,8 @@
 <p><a href="http://discover.sjlibrary.org/iii/encore_sjpl/search/C__St:(the%20fishermen)%20a:(obioma)__Orightresult__U?lang=eng" target="_blank"><i>The Fishermen</i>, Chigozie Obioma</a> (this Biblical parable tells the tale of four brothers living under a military dictatorship in early 1990s Nigeria)</p>
 </div>
 </div>
+
+<div id="again"><button>Take this quiz again</button></div>
 <!--bookquiz --><script>
 jQuery(document).ready(function($) {
         
@@ -183,7 +185,7 @@ jQuery(document).ready(function($) {
           } else if(val == 'B3') {
             $( "#pB3" ).show( "slow" );
           }
-
+         $('#again').show('slow');
     });
     
     
@@ -198,10 +200,13 @@ jQuery(document).ready(function($) {
           } else if(val == 'C3') {
             $( "#pC3" ).show( "slow" );
           }
-
+          $('#again').show('slow');        
+         
     });
     
-           
+$('#again > button').click(function() {
+$('#yesorno')[0].reset();   //alert('button pressed bitches');
+});    
             
   
 });
